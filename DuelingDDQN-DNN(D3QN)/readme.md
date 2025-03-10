@@ -85,5 +85,5 @@ where:
 
 This study validates the effectiveness of the **DuelingDDQN-DNN (D3QN)** algorithm in multi-intersection traffic signal control. The experimental results show that compared to traditional Q-learning and standard DDQN, the **DuelingDDQN-DNN** algorithm significantly improves traffic flow efficiency, reduces congestion time, and performs well in adapting to varying traffic demands.
 
-The experiments were conducted using the traffic simulation platform **SUMO**, testing signal control for multiple intersections. Different traffic flows and signal cycle configurations were used to validate the adaptability and superiority of the **DuelingDDQN-DNN** algorithm in various scenarios.
+The experiments were conducted using the traffic simulation platform **SUMO**, testing signal control for multiple intersections. Different traffic flows and signal cycle configurations were used to validate the adaptability and superiority of the **DuelingDDQN-DNN** algorithm in various scenarios。
 
