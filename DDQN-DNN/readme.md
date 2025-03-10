@@ -1,89 +1,46 @@
-## DuelingDDQN-DNN (D3QN)
+# DNN-based Traffic Light Control System
 
-### Table of contents
+This repository contains the implementation of a Deep Neural Network (DNN) based traffic light control system using Double Deep Q-Networks (DDQN).
 
-1. [Introduction](#1-introduction)
-2. [Method](#2-method)
-3. [Experiments](#3-experiments)
-4. [Conclusions](#4-conclusions)
+## Table of Contents
 
---- 
+1. [Introduction](#introduction)
+2. [Method](#method)
+3. [Experiments](#experiments)
+4. [Conclusions](#conclusions)
 
-### 1. **Introduction**
+---
 
-With the development of intelligent transportation systems and autonomous driving technologies, achieving coordinated control between multiple intersections to improve traffic efficiency and safety has become an important research topic. Existing traffic signal control methods often rely on fixed green light cycles and signal cycle maximization, lacking adaptability to dynamic traffic conditions. To address this issue, reinforcement learning-based approaches, particularly **Dueling Double Deep Q-Networks (DuelingDDQN or D3QN)** combined with **Deep Neural Networks (DNN)**, offer a promising solution.
+### 1. Introduction
 
-This paper proposes a **DuelingDDQN-DNN (D3QN)** algorithm, which enhances the standard DDQN model by incorporating a **Dueling Network Architecture**, effectively separating the value and advantage functions for improved traffic signal decision-making.
+In this project, we explore the application of Deep Reinforcement Learning (DRL) for traffic light control in urban intersections. The goal is to optimize traffic flow and reduce waiting times using DDQN.
 
-### 2. **Method**
+### 2. Method
 
-The basic framework of the **DuelingDDQN-DNN** algorithm includes the following parts:
+The method involves training a DDQN to learn the optimal policy for traffic light control. The state space includes the current queue lengths and waiting times at each intersection. The action space consists of different traffic light settings.
 
-- **State Space**: The state of each intersection consists of factors such as the current signal phase, traffic flow, vehicle queue length, and other traffic-related information.
-- **Action Space**: The action space includes different signal switching strategies.
-- **Q-value Function**: The Q-value function is decomposed into a value function and an advantage function to enhance learning stability.
+#### Formulas
 
-#### **Dueling Q-Network**
-
-In a traditional **DQN**, the Q-value function is represented as:
-
-$$ Q(s, a) $$
-
-where \( s \) is the state and \( a \) is the action. However, in the **Dueling Architecture**, the Q-value function is decomposed into:
-
-$$ Q(s, a) = V(s) + A(s, a) $$
-
+The Q-value update rule in DDQN is given by:
+\[ Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q\left(s', a'\right) - Q(s, a) \right] \]
 where:
-- \( V(s) \) represents the state value,
-- \( A(s, a) \) represents the advantage function, which captures the relative benefit of each action.
+- \( Q(s, a) \) is the Q-value for state \( s \) and action \( a \)
+- \( \alpha \) is the learning rate
+- \( r \) is the reward received after taking action \( a \) in state \( s \)
+- \( \gamma \) is the discount factor
+- \( s' \) is the next state
 
-To ensure uniqueness, the advantage function is modified as:
+### 3. Experiments
 
-$$ Q(s, a) = V(s) + \left(A(s, a) - \frac{1}{|A|} \sum_{a'} A(s, a') \right) $$
+We conducted experiments using a simulated environment with multiple intersections. The performance of the DDQN controller was compared against traditional fixed-time controllers.
 
-where \( |A| \) is the number of actions.
+#### Results
 
-This structure allows the model to better estimate the relative importance of different actions and stabilize training.
+The results showed significant improvements in traffic flow efficiency and reduced average waiting times.
 
-### **Q-value Update (Double DQN Mechanism)**
+#### 4. Conclusions
 
-To reduce overestimation bias, **Double DQN (DDQN)** updates the Q-value using separate networks:
-
-$$ y = r + \gamma Q_{\text{target}}(s', \arg\max_a Q_{\text{online}}(s', a; \theta); \theta^-) $$
-
-where:
-- \( Q_{\text{online}} \) is the online Q-network,
-- \( Q_{\text{target}} \) is the target Q-network,
-- \( \theta \) and \( \theta^- \) are the parameters of the online and target networks, respectively.
-
-This modification helps mitigate the instability caused by overestimation in Q-learning.
-
-### 3. **Experiments**
-
-#### Performance Evaluation Metrics
-
-To evaluate the effectiveness of **DuelingDDQN-DNN**, we compare its performance using the following metrics:
-
-- **Queue Length**: Total number of vehicles waiting at intersections.
-- **Waiting Time**: Total waiting time of stopped vehicles at intersections.
-- **Average Speed**: The average speed of vehicles approaching the intersections.
-- **Incoming/Outgoing Lane Density**: The number of vehicles in the incoming and outgoing lanes at intersections.
-- **Pressure**: The difference in vehicle density between incoming and outgoing lanes.
-
-#### Reward Function
-
-In this study, the reward function is designed based on the change in vehicle waiting time:
-
-$$ \mathcal{R}_t = D_t - D_{t+1} $$
-
-where:
-
-- \( D_t \) and \( D_{t+1} \) represent the total waiting times at time steps \( t \) and \( t+1 \), respectively.
-- The reward function aims to minimize the waiting time at traffic lights, thus improving traffic flow efficiency.
-
-### 4. **Conclusions**
-
-This study validates the effectiveness of the **DuelingDDQN-DNN (D3QN)** algorithm in multi-intersection traffic signal control. The experimental results show that compared to traditional Q-learning and standard DDQN, the **DuelingDDQN-DNN** algorithm significantly improves traffic flow efficiency, reduces congestion time, and performs well in adapting to varying traffic demands.
+This project demonstrates the potential of using DDQN for adaptive traffic light control. Future work will focus on scaling the approach to real-world scenarios and integrating with existing traffic management systems.
 
 The experiments were conducted using the traffic simulation platform **SUMO**, testing signal control for multiple intersections. Different traffic flows and signal cycle configurations were used to validate the adaptability and superiority of the **DuelingDDQN-DNN** algorithm in various scenarios.
 
