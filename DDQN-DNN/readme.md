@@ -6,10 +6,10 @@
 1. [Introduction](#1-introduction)
 2. [Method](#2-method)
 3. [Experiments](#3-experiments)
-4. [Results](#4-results)
-5. [Conclusions](#5-conclusions)
+4. [Conclusions](#4-conclusions)
 
 ---
+
 ### 1. Introduction 
 - DDQN-DNN (Double Deep Q-Network with Deep Neural Networks) is an advanced reinforcement learning algorithm that combines Double Q-learning with deep neural networks to improve stability and performance. It addresses the overestimation issue in traditional DQN by decoupling action selection and evaluation, using two separate networks for more accurate Q-value estimation. The DNN component allows the model to handle high-dimensional state spaces, making it suitable for complex environments. By leveraging experience replay and target networks, DDQN-DNN enhances learning efficiency and convergence. This approach is widely used in applications like game playing and robotics.
 
@@ -34,17 +34,6 @@ Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma Q_{\text{target}}(s', \arg
 $$
 
 Here, $$Q_{\text{main}}(s', a')$$ is the Q-value predicted by the main network to select the best action $$a'$$. $$Q_{\text{target}}(s', a')$$ is the Q-value predicted by the target network to evaluate the selected action. This separation minimizes overestimation bias in Q-values.
-
----
-
-- #### Experience Replay Formula
-Experience replay breaks data correlation by storing and randomly sampling past experiences, improving training stability.
-
-$$
-\text{Loss} = \mathbb{E}_{(s, a, r, s') \sim \mathcal{D}} \left[ \left( r + \gamma Q_{\text{target}}(s', \arg\max_{a'} Q_{\text{main}}(s', a')) - Q(s, a) \right)^2 \right]
-$$
-
-Here, $$\mathcal{D}$$ is the experience replay buffer. $$(s, a, r, s')$$ is a tuple sampled from the buffer, representing the current state $$s$$, action $$a$$, reward $$r$$, and next state $$s'$$. The loss function minimizes the difference between the predicted Q-value $$Q(s, a)$$ and the target Q-value.
 
 ---
 
@@ -83,5 +72,8 @@ $$
 
 Here, $$a$$ is the selected action. With probability $$\epsilon$$, a random action is chosen to encourage exploration. Otherwise, the action with the highest Q-value $$\arg\max_a Q(s, a)$$ is selected for exploitation.
 
-### 5. Conclusions 
+### 3. Experiences
+To evaluate the DDQN-DNN algorithm, we conducted experiments using SUMO (Simulation of Urban MObility) to simulate urban traffic environments. The model was trained to optimize traffic signal control, with the state space including vehicle density and queue lengths, and the action space consisting of phase switching decisions. Over multiple episodes, DDQN-DNN demonstrated faster convergence and reduced average waiting times compared to traditional DQN, owing to its improved Q-value estimation. The integration with SUMO showcased its ability to adapt to dynamic traffic patterns, effectively minimizing congestion in simulated urban scenarios. These results validate the algorithm's efficacy in real-world-inspired traffic management tasks.
+
+### 4. Conclusions 
 In conclusion, the DDQN-DNN algorithm effectively addresses the overestimation issue of traditional DQN by decoupling action selection and evaluation, leading to more stable and accurate Q-value predictions. When integrated with SUMO (Simulation of Urban MObility), DDQN-DNN demonstrates its capability to optimize traffic signal control by learning adaptive policies that minimize congestion and improve traffic flow. The use of experience replay and target networks further enhances training stability, making it suitable for dynamic and complex urban traffic scenarios simulated in SUMO. This combination highlights the potential of reinforcement learning in intelligent transportation systems.
