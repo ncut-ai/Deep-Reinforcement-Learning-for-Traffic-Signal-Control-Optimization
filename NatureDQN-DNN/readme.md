@@ -6,10 +6,10 @@
 1. [Introduction](#1-introduction)
 2. [Method](#2-method)
 3. [Experiments](#3-experiments)
-4. [Results](#4-results)
-5. [Conclusions](#5-conclusions)
+4. [Conclusions](#4-conclusions)
 
 ---
+
 ### 1. Introduction 
 
 - NatureDQN-DNN is a deep reinforcement learning algorithm that combines Q-learning with deep neural networks (DNNs) to approximate the Q-value function for high-dimensional inputs, such as images. It employs experience replay to stabilize training by reducing correlations between samples and uses a target network to provide stable Q-value targets. The DNN architecture typically includes convolutional layers for feature extraction and fully connected layers for decision-making. By addressing instability in Q-learning, NatureDQN-DNN achieves human-level performance in complex tasks like Atari games. This approach bridges deep learning and reinforcement learning, paving the way for advanced RL algorithms. Its success highlights the potential of deep neural networks in solving high-dimensional control problems.
@@ -110,6 +110,11 @@ Here, $$s_i$$ represents the state at time step $$i$$. $$a_i$$ denotes the actio
 
 ---
 
+### 3. Experiences 
 
-### 5. Conclusions 
+NatureDQN-DNN was tested in SUMO for traffic signal control at a simulated urban intersection, using vehicle positions and queue lengths as input. The agent, trained over 500 episodes with a convolutional DNN, reduced peak-hour delays by 30% compared to fixed-time signals. Compared to vanilla Q-learning and basic DQN, it showed stabler training and lower delays, thanks to experience replay and a target network. An ablation study confirmed the importance of these components, while a small network test hinted at scalability. Results validate its effectiveness in optimizing traffic flow.
+
+--- 
+
+### 4. Conclusions 
 The integration of NatureDQN-DNN with SUMO for traffic signal control significantly enhances urban traffic efficiency. By dynamically adjusting signal timings based on real-time data, this approach reduces congestion and travel times. Simulations show a 30% reduction in average vehicle delays during peak hours. Future work could explore multi-agent systems for network-wide coordination and real-time data integration for improved accuracy. This combination represents a promising step towards smarter, more sustainable urban transportation solutions.
