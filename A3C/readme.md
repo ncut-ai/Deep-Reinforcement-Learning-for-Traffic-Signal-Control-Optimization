@@ -2,6 +2,7 @@
 
 ---
 
+
 ### Table of contents 
 1. [Introduction](#1-introduction)
 2. [Method](#2-method)
@@ -83,6 +84,11 @@ H(\pi(s_t; \theta)) = -\sum_a \pi(a | s_t; \theta) \log \pi(a | s_t; \theta)
 $$
 
 Here, $$H(\pi(s_t; \theta))$$ is the entropy of the policy. $$\pi(a | s_t; \theta)$$ denotes the probability distribution of taking action $$a$$ given state $$s_t$$. $$a$$ is an action in the action space.
+
+---
+
+### 3. Experiments
+The A3C algorithm was tested in SUMO for traffic signal control, using 8-16 worker threads on a multi-core CPU. Each thread managed an intersection agent, processing real-time traffic data (e.g., waiting times) via SUMO’s API. A shared neural network with Actor-Critic outputs was trained over simulated scenarios. Performance was assessed by reduced waiting times and improved traffic flow. A3C outperformed traditional methods, benefiting from asynchronous updates and exploration.
 
 ---
 
