@@ -72,7 +72,8 @@ $$
 
 Here, $$a$$ is the selected action. With probability $$\epsilon$$, a random action is chosen to encourage exploration. Otherwise, the action with the highest Q-value $$\arg\max_a Q(s, a)$$ is selected for exploitation.
 
-### 3. Experiences
+### 3. Experiments
+
 To evaluate the DDQN-DNN algorithm, we conducted experiments using SUMO (Simulation of Urban MObility) to simulate urban traffic environments. The model was trained to optimize traffic signal control, with the state space including vehicle density and queue lengths, and the action space consisting of phase switching decisions. Over multiple episodes, DDQN-DNN demonstrated faster convergence and reduced average waiting times compared to traditional DQN, owing to its improved Q-value estimation. The integration with SUMO showcased its ability to adapt to dynamic traffic patterns, effectively minimizing congestion in simulated urban scenarios. These results validate the algorithm's efficacy in real-world-inspired traffic management tasks.
 
 ### 4. Conclusions 
