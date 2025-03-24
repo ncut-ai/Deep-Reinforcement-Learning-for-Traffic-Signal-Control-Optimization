@@ -110,7 +110,7 @@ Here, $$s_i$$ represents the state at time step $$i$$. $$a_i$$ denotes the actio
 
 ---
 
-### 3. Experiences 
+### 3. Experiments
 
 NatureDQN-DNN was tested in SUMO for traffic signal control at a simulated urban intersection, using vehicle positions and queue lengths as input. The agent, trained over 500 episodes with a convolutional DNN, reduced peak-hour delays by 30% compared to fixed-time signals. Compared to vanilla Q-learning and basic DQN, it showed stabler training and lower delays, thanks to experience replay and a target network. An ablation study confirmed the importance of these components, while a small network test hinted at scalability. Results validate its effectiveness in optimizing traffic flow.
 
