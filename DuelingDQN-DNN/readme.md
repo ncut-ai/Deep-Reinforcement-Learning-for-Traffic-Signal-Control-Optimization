@@ -82,4 +82,3 @@ Experiments were conducted using the SUMO simulator to evaluate the Dueling DQN-
 
 ### 4. Conclusions 
 The Dueling DQN-DNN algorithm, integrated with SUMO (Simulation of Urban MObility), provides an efficient framework for traffic signal control by leveraging state-of-the-art reinforcement learning techniques. By decomposing Q-values into state value and advantage streams, the algorithm enhances decision-making in complex traffic scenarios. The DNN architecture enables the agent to process high-dimensional state representations from SUMO, such as vehicle positions and queue lengths. Through experience replay and target network updates, the model achieves stable and convergent learning. Combined with SUMO's realistic traffic simulation, this approach optimizes traffic flow, reduces congestion, and minimizes delays at intersections. Overall, Dueling DQN-DNN demonstrates strong potential for intelligent transportation systems.
-
