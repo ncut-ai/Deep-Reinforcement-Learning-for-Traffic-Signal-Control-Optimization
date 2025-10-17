@@ -1,0 +1,21 @@
+<configuration>
+    <input>
+        <net-file value="example42.net.xml"/>
+        <route-files value="example42.flows.xml"/>
+        <turn-ratio-files value="example42.turns.xml"/>
+        
+    </input>
+    <output>
+        <write-license value="true"/>
+        <output-file value="example42.rou.xml"/>
+    </output>
+    <processing>
+        <sources-are-sinks value="true"/>
+        <accept-all-destinations value="true"/>
+    </processing>
+    <report>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>

@@ -1,6 +1,0 @@
-<additional>
-    <edgeData id="edgedata_300" file="output/edge_300.xml" freq="300" edges="-E2 E2 -E5 E5 -E0 E0 -E8 E8"/>
-	<laneData id="lanedata_300" file="output/lane_300.xml" freq="300" edges="-E2 E2 -E5 E5 -E0 E0 -E8 E8"/>
-	<edgeData id="edgedata_120" file="output/edge_120.xml" freq="120" edges="-E2 E2 -E5 E5 -E0 E0 -E8 E8"/>
-	<laneData id="lanedata_120" file="output/lane_120.xml" freq="120" edges="-E2 E2 -E5 E5 -E0 E0 -E8 E8"/>
-</additional>

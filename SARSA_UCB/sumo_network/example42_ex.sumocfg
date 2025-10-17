@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <input>
+        <net-file value="example42.net.xml"/>
+        <route-files value="example42.rou.xml,bus.rou.xml,pedestrian.rou.xml"/>
+        <additional-files value="busstops_def.add.xml,det_e3.add.xml,det_e2.add.xml,edgelane_dump.add.xml,signal-timing-dial.xml"/>
+    </input>
+
+    <output>
+        <write-license value="false"/>  <!--  Include license info into every output file; default: false -->
+        <output-prefix value="OUTPUT-"/> <!-- Prefix which is applied to all output files. The special string 'TIME' is replaced by the current time.-->
+        <precision value="2"/>  <!-- Defines the number of digits after the comma for floating point output; default: 2-->
+        <human-readable-time value="false"/>  <!--Write time values as hour:minute:second or day:hour:minute:second rather than seconds; default: false -->
+        <!--netstate-dump value="output/data_netstate.xml"/-->  <!--Save complete network states into FILE -->
+        <emission-output value="output/data_emission.xml"/>  <!--Save the emission values of each vehicle -->
+        <emission-output.precision value="2"/>  <!--Write emission values with the given precision (default 2); default: 2 -->
+        <!--full-output value="data_fulloutput.xml"/-->  <!-- Save a lot of information for each timestep (very redundant)-->
+        <queue-output value="output/data_Queue.xml"/>  <!--Save the vehicle queues at the junctions (experimental) -->
+        <queue-output.period value="300"/>  <!-- Save vehicle queues with the given period; default: -1-->
+        <summary-output value="output/data_summary.xml"/>  <!-- Save aggregated vehicle departure info into FILE-->
+        <summary-output.period value="300"/>  <!-- Save summary-output with the given period; default: -1-->
+        <person-summary-output value="output/data_person_summary.xml"/>  <!-- Save aggregated person counts into FILE-->
+        <personinfo-output value="output/data_personinfo.xml"/>  <!-- Save personinfo and containerinfo to separate FILE-->
+        <!--link-output  value="output/data_link.xml"/-->  <!-- Save links states into FILE-->
+        <collision-output value="output/data_collision.xml"/>  <!-- Write collision information into FILE-->
+        <edgedata-output value="output/data_edges.xml"/>  <!-- Write aggregated traffic statistics for all edges into FILE-->
+        <lanedata-output value="output/data_lanes.xml"/>  <!-- Write aggregated traffic statistics for all lanes into FILE-->
+        <statistic-output value="output/data_statistic.xml"/>  <!-- Write overall statistics into FILE-->
+    </output>
+
+    <time>
+        <begin   value="0"/>
+        <end     value="3600"/>
+        <step-length value="1"/>  <!-- Defines the step duration in seconds; default: 1-->
+    </time>
+
+    <processing>
+        <no-internal-links value="false"/>  <!-- Disable (junction) internal links; default: false-->
+        <ignore-route-errors value="true"/>  <!-- Do not check whether routes are connected; default: false-->
+        <collision.action value="teleport"/>  <!--How to deal with collisions: [none,warn,teleport,remove]; default: teleport -->
+        <intermodal-collision.action value="warn"/>  <!--How to deal with collisions between vehicle and pedestrian: [none,warn,teleport,remove]; default: warn -->
+        <collision.stoptime value="0"/>  <!--Let vehicle stop for TIME before performing collision.action (except for action 'none'); default: 0 -->
+        <intermodal-collision.stoptime value="0"/>  <!--Let vehicle stop for TIME before performing intermodal-collision.action (except for action 'none'); default: 0 -->
+        <collision.check-junctions value="false"/>  <!--  Enables collisions checks on junctions; default: false -->
+        <max-num-vehicles value="-1"/>  <!--  Delay vehicle insertion to stay within the given maximum number; default: -1 -->
+        <max-num-teleports value="-1"/>  <!--     Abort the simulation if the given maximum number of teleports is exceeded; default: -1-->
+        <time-to-teleport value="300"/>  <!--Specify how long a vehicle may wait until being teleported, defaults to 300, non-positive values disable teleporting; default: 300 -->
+        <time-to-teleport.remove value="false"/>  <!--    Whether vehicles shall be removed after waiting too long instead of being teleported; default: false-->
+        <waiting-time-memory value="100"/>  <!-- Length of time interval, over which accumulated waiting time is taken into account (default is 100s.); default: 100-->
+        <max-depart-delay value="-1"/>  <!--  How long vehicles wait for departure before being skipped, defaults to -1 which means vehicles are never skipped; default: -1 -->
+        <random-depart-offset value="0"/>  <!--   Each vehicle receives a random offset to its depart value drawn uniformly from [0, TIME]; default: 0 -->
+        <lanechange.duration value="0"/>  <!-- Duration of a lane change maneuver (default 0); default: 0-->
+        <lanechange.overtake-right value="false"/>  <!--Whether overtaking on the right on motorways is permitted; default: false -->
+        <tls.all-off value="false"/>  <!--Switches off all traffic lights.; default: false -->
+        <tls.yellow.min-decel value="3"/>  <!--Minimum deceleration when braking at yellow; default: 3 -->
+    </processing>
+
+    <routing>
+        <routing-algorithm value="dijkstra"/>  <!--   Select among routing algorithms ['dijkstra', 'astar', 'CH', 'CHWrapper']; default: dijkstra -->
+    </routing>
+
+    <report>
+        <no-warnings        value="true"/> <!--Disables output of warnings; default: false -->
+        <verbose            value="true"/> <!-- Switches to verbose output; default: false-->
+        <no-step-log        value="true"/> <!-- Disable console output of current simulation step; default: false -->
+        <step-log.period    value="300"/> <!-- Number of simulation steps between step-log outputs; default: 100-->
+        <log value="output/data_log.xml"/>  <!-- Writes all messages to FILE (implies verbose)-->
+    </report>
+
+    <emissions>
+        <device.emissions.period         value="300"/> <!--     Recording period for emission-output; default: 0-->
+    </emissions>
+
+    <mesoscopic>
+        <mesosim value="false"/>  <!--  Enables mesoscopic simulation; default: false-->
+    </mesoscopic>
+
+    <random_number>
+        <random value="false"/>  <!-- Initialises the random number generator with the current system time; default: false  -->
+        <seed value="23423"/>  <!-- Initialises the random number generator with the given value; default: 23423-->
+    </random_number>
+
+    <gui_only>
+        <gui-settings-file value="viewsettings.xml"/> <!-- Load visualisation settings from FILE-->
+        <start value="false"/>  <!-- Start the simulation after loading; default: false-->
+        <demo value="false"/>  <!-- Restart the simulation after ending (demo mode); default: false-->
+        <window-size value="800,600"/>  <!-- Create initial window with the given x,y size-->
+        <window-pos value="100,100"/>  <!-- Create initial window at the given x,y position-->
+    </gui_only>
+</configuration>

@@ -1,0 +1,40 @@
+<routes>
+  <!--公交相关，公交车站在.net.xml中定义-->
+  <vType id="BUS_A" personCapacity="40" vClass="bus" length="12" maxSpeed="9" guiShape="bus"/>
+  <vType id="BUS_B" personCapacity="45" vClass="bus" Length="14" maxSpeed="7" guiShape="bus" />
+
+
+
+  <route id="rt_W2E" edges="E0 E2 E5 E8"/>
+  <route id="rt_E2W" edges="-E8 -E5 -E2 -E0"/>
+
+  <route id="rt_UP2DOWN" edges="-E3 E2 E5 E7"/>
+  <route id="rt_DOWN2UP" edges="-E7 -E5 -E2 E3"/>
+
+
+  <flow id="e2w_106" color="1,1,1"  begin="0" end= "3600" period="600"  type="BUS_B" line="EToW" route="rt_E2W"> 
+    <stop busStop="shuidianju_north" duration="60"/>
+    <stop busStop="zhiwuyuan_north" duration="60"/>
+    <stop busStop="ertongleyuan_north" duration="60"/>
+  </flow>
+
+  <flow id="w2e_106" color="1,0,1"  begin="0" end= "3600" period="600"  type="BUS_A" line="WToE" route="rt_W2E"> 
+    <stop busStop="ertongleyuan_south" duration="60"/>
+    <stop busStop="zhiwuyuan_south" duration="60"/>
+    <stop busStop="shuidianju_south" duration="60"/>
+  </flow>
+
+  <flow id="up2down_211" color="0.2,1,1"  begin="0" end= "3600" period="600"  type="BUS_B" line="UP2DOWN" route="rt_UP2DOWN"> 
+    <stop busStop="postoffice_west" duration="60"/>
+    <stop busStop="zhiwuyuan_south" duration="60"/>
+    <stop busStop="guangmingxiaoqu_west" duration="60"/>
+  </flow>
+
+  <flow id="down2up_211" color="1,0.5,1"  begin="0" end= "3600" period="600"  type="BUS_A" line="DOWN2UP" route="rt_DOWN2UP"> 
+    <stop busStop="guangmingxiaoqu_east" duration="60"/>
+    <stop busStop="zhiwuyuan_north" duration="60"/>
+    <stop busStop="postoffice_east" duration="60"/>
+  </flow>
+  
+
+</routes>

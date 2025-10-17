@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-03-03 15:25:01 by Eclipse SUMO sumo Version 1.19.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="sumo_network/example42.net.xml"/>
+        <route-files value="sumo_network/example42.rou.xml,sumo_network/bus.rou.xml,sumo_network/pedestrian.rou.xml"/>
+        <additional-files value="sumo_network/busstops_def.add.xml,sumo_network/det_e3.add.xml,sumo_network/det_e2.add.xml,sumo_network/edgelane_dump.add.xml,sumo_network/signal-timing-dial.xml"/>
+    </input>
+
+    <output>
+        <write-license value="false"/>
+        <output-prefix value="OUTPUT-"/>
+        <precision value="2"/>
+        <human-readable-time value="false"/>
+        <emission-output value="sumo_network/output/data_emission.xml"/>
+        <emission-output.precision value="2"/>
+        <queue-output value="sumo_network/output/data_Queue.xml"/>
+        <queue-output.period value="300"/>
+        <summary-output value="sumo_network/output/data_summary.xml"/>
+        <summary-output.period value="300"/>
+        <person-summary-output value="sumo_network/output/data_person_summary.xml"/>
+        <personinfo-output value="sumo_network/output/data_personinfo.xml"/>
+        <collision-output value="sumo_network/output/data_collision.xml"/>
+        <edgedata-output value="sumo_network/output/data_edges.xml"/>
+        <lanedata-output value="sumo_network/output/data_lanes.xml"/>
+        <statistic-output value="sumo_network/output/data_statistic.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1"/>
+    </time>
+
+    <processing>
+        <no-internal-links value="false"/>
+        <ignore-route-errors value="true"/>
+        <collision.action value="teleport"/>
+        <intermodal-collision.action value="warn"/>
+        <collision.stoptime value="0"/>
+        <intermodal-collision.stoptime value="0"/>
+        <collision.check-junctions value="false"/>
+        <max-num-vehicles value="-1"/>
+        <max-num-teleports value="-1"/>
+        <time-to-teleport value="300"/>
+        <time-to-teleport.remove value="false"/>
+        <waiting-time-memory value="100"/>
+        <max-depart-delay value="-1"/>
+        <random-depart-offset value="0"/>
+        <lanechange.duration value="0"/>
+        <lanechange.overtake-right value="false"/>
+        <tls.all-off value="false"/>
+        <tls.yellow.min-decel value="3"/>
+    </processing>
+
+    <routing>
+        <routing-algorithm value="dijkstra"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <no-warnings value="true"/>
+        <log value="sumo_network/output/data_log.xml"/>
+        <no-step-log value="true"/>
+        <step-log.period value="300"/>
+    </report>
+
+    <emissions>
+        <device.emissions.period value="300"/>
+    </emissions>
+
+    <traci_server>
+        <remote-port value="8813"/>
+    </traci_server>
+
+    <mesoscopic>
+        <mesosim value="false"/>
+    </mesoscopic>
+
+    <random_number>
+        <random value="false"/>
+        <seed value="23423"/>
+    </random_number>
+
+    <gui_only>
+        <gui-settings-file value="sumo_network/viewsettings.xml"/>
+        <start value="true"/>
+        <demo value="false"/>
+        <window-size value="800,600"/>
+        <window-pos value="100,100"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<e3Detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e3_file.xsd">
+   <interval begin="0.00" end="120.00" id="e3_det" meanTravelTime="46.33" meanOverlapTravelTime="46.72" meanSpeed="7.15" meanHaltsPerVehicle="0.74" meanTimeLoss="24.97" vehicleSum="23" meanSpeedWithin="5.86" meanHaltsPerVehicleWithin="0.89" meanDurationWithin="56.47" vehicleSumWithin="79" meanIntervalSpeedWithin="5.86" meanIntervalHaltsPerVehicleWithin="0.89" meanIntervalDurationWithin="56.47" meanTimeLossWithin="36.03"/>
+   <interval begin="0.00" end="120.00" id="LEFT_e3_det" meanTravelTime="48.11" meanOverlapTravelTime="48.63" meanSpeed="6.57" meanHaltsPerVehicle="0.75" meanTimeLoss="25.86" vehicleSum="12" meanSpeedWithin="6.52" meanHaltsPerVehicleWithin="0.83" meanDurationWithin="52.02" vehicleSumWithin="42" meanIntervalSpeedWithin="6.52" meanIntervalHaltsPerVehicleWithin="0.83" meanIntervalDurationWithin="52.02" meanTimeLossWithin="33.85"/>
+   <interval begin="0.00" end="120.00" id="MID_e3_det" meanTravelTime="39.66" meanOverlapTravelTime="40.03" meanSpeed="8.02" meanHaltsPerVehicle="0.62" meanTimeLoss="22.77" vehicleSum="13" meanSpeedWithin="10.95" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="9.65" vehicleSumWithin="7" meanIntervalSpeedWithin="10.95" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="9.65" meanTimeLossWithin="0.36"/>
+   <interval begin="0.00" end="120.00" id="RIGHT_e3_det" meanTravelTime="48.61" meanOverlapTravelTime="49.09" meanSpeed="6.34" meanHaltsPerVehicle="0.67" meanTimeLoss="29.11" vehicleSum="12" meanSpeedWithin="5.57" meanHaltsPerVehicleWithin="0.90" meanDurationWithin="53.27" vehicleSumWithin="30" meanIntervalSpeedWithin="5.57" meanIntervalHaltsPerVehicleWithin="0.90" meanIntervalDurationWithin="53.27" meanTimeLossWithin="34.71"/>
+</e3Detector>
